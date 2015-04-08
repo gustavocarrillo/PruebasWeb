@@ -8,12 +8,35 @@ body
 	font-family: "Arial";
 	font-size: 16px;
 }
+footer
+{	/*r:rojo, g:verde, b:blue, a:alpha(opacidad de 0 a 1)*/ 							
+	color: rgba(255,255,255,0.6); /*color blanco con transparencia*/
+	background: #22BCE0;			
+	text-align: center;
+	padding: 1em;
+}
+footer p:first-child /*Pseudo-clase que accede al primer hijo de footer*/
+{
+	margin-bottom: 0;
+}
+footer p:last-child /*Pseudo-clase que accede al ultimo hijo de footer*/
+{
+	margin-top: 0;
+}
+footer p:last-child:before 
+{
+	content: "- "
+}
+footer p:last-child:after
+{
+	content: " -"
+}
 header
 {
 	position: relative;
 	background: #343B54;
 	color: white;
-	overflow: hidden;
+	overflow: hidden;/*Overflow impide que los elementos salgan de su contenedor*/
 	padding: 0.5em;
 }
 header figure
@@ -65,7 +88,7 @@ nav ul li
 nav ul li a 
 {
 	color: white;
-	display: block;
+	display: block; /*solo los elementos block pueden tener padding y margin (top-bottom)*/
 	padding: 0.5em 0;
 }
 nav ul #publicar_nav
@@ -83,4 +106,75 @@ nav ul #publicar_nav a
 	font-style: italic;
 	text-decoration: none;
 	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+}
+
+#contenido
+{
+	padding: 1em;
+}
+#contenido .item
+{ 
+	background: white;
+	border-bottom: 3px solid #22BCE0;
+	margin-bottom: 2em;
+	min-height: 128px;
+	position: relative;
+}
+#contenido .item .img_item
+{
+	float: left;
+	margin: 0 1em 0 0;
+}
+#contenido .item .autor_item
+{
+	color: #AAA;
+}
+#contenido .item .datos_item
+{
+	margin: 1em 1em 0 0;
+	text-align: right;
+}
+#contenido .item .datos_item .fecha_item
+{
+	color: #AAA;
+}
+#contenido .item .datos_item .tag_item
+{
+	background:#F4502A;
+	border-radius: 3px;
+	color: white;
+	display: inline-block;
+	float: left;
+	padding: 0.2em 0.8em;
+	text-decoration: none;	
+}
+#contenido .item .img_item img
+{
+	width: 96px;
+}
+#contenido .item .titulo_item
+{
+	font-size: 1.2em;
+	font-style: italic;
+	padding: 1em 1em 0 0;
+}
+#contenido .item .titulo_item a
+{
+	color:#444;
+	text-decoration: none;
+}
+#contenido .item .votacion
+{
+	border-radius: 0 0 0.5em 0.5em;
+	left: 5%;
+	margin-top: 3px;
+	padding: 0.2em 0.5em;
+	position: absolute;
+	top: 100%;
+	width: 90%;
+}
+#contenido .item .votacion .comentarios_votacion,
+#contenido .item .votacion .guardar_votacion
+{
+	float: right;
 }

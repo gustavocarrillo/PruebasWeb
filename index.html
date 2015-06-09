@@ -4,10 +4,14 @@
 		<meta charset="utf-8" />
 		<meta name="description" content="Proyecyo web con platzi" /> 
 		<title>Pulse2014: un buena comunidad</title>
-		<!-- fuente de google desde los servidores de google -->
-		<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+		<!--con el width establecemos q el ancho sera el del dispositivo-->
+		<!--minimum y maximum a 1 establecen que el max y min zoom sera siempre 100%-->
+		<!--es decir, el usuario no podra hacer zoom-->
+		<meta content="viewport" content="width=divice-width, minimum-scale=1, minimum-scale=1" />	
+
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/estilos.css">
+		<script src="js/prefixfree.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 	<header>
@@ -29,10 +33,24 @@
 			<li><a href="#">Javascript</a></li>
 			<li><a href="#">DJango</a></li>
 			<li id="publicar_nav">
-				<a href="#" class="icon-Lapiz">Publicar</a>
+				<a class="icon-Lapiz" id="mostrar_form" href="#">Publicar</a>
 			</li>
 		</ul>
 	</nav>
+	<form action="" id="formulario" class="formulario">
+		<input type="text" id="titulo" placeholder="Escribe aqui el Titulo" required>
+		<input type="url" id="url" placeholder="Escribe aqui la URL" required>
+		<input type="submit" value="agregar">		
+	</form>
+	<!--aside se utiliza para englobar contenido con poco valor semantico. Investigar-->
+	<aside>	
+		<!--los moviles no permiten autoplay por lo que hay q colocar los controles-->
+		<video width="320" height="240" controls autoplay>
+			<source src="videos/lecturas.mp4" type="video/mp4">
+			<source src="videos/lecturas.ogg" type="video/ogg">
+			<!-- Actualiza tu navegador. Usa Chrome o Firefox!! Esto para navegadores q no soportan la etiqueta video--> 
+		</video>
+	</aside>
 	<section id="contenido">
 		<article class="item">
 			<figure class="img_item">
@@ -46,7 +64,7 @@
 			<div class="autor_item">
 				Por: <a href="#">Gustavo Carrillo</a>
 			<div>
-			<div class="datos_item">
+			<div class="datos_item"> 
 				<a href="#" class="tag_item">Pony</a>
 				<span class="fecha_item">
 					hace <strong>5</strong> min
@@ -225,6 +243,8 @@
 			Mejorando.la
 		</p>
 	</footer>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="js/formulario.js"></script>
 
 	</body>
 </html>

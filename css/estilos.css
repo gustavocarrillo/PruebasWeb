@@ -1,3 +1,15 @@
+/*prefijos propietarios*/
+/* -webkit- CHROME, OPERA  */
+/* -moz- 	FIREFOX */
+/* -o 		OPERA en vers. antiguas */
+/* -ms- 	INTERNET EXPLORER */
+
+/*se usan porq cada navegador intepreta las animaciones diferente*/
+/* 		fin 		*/
+
+/*permite importar una url....INVESTIGAR*/
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+
 @font-face {
 	font-family: 'icomoon';
 	src:url('fuentes/icomoon.eot?8e2c0s');
@@ -31,6 +43,7 @@
 .icon-estrella:before {
 	color: rgb(255, 167, 5);
 	content: "\e9d9";
+	margin-right: 0.2em;
 }
 
 .icon-flechaUp:before {
@@ -61,7 +74,7 @@ footer
 	padding: 1em;			
 	text-align: center;
 }
-footer p:first-child /*Pseudo-clase que accede al primer hijo de footer*/
+footer p:first-child /*Pseudo-clase que accede al primer hijo p de footer*/
 {
 	margin-bottom: 0;
 }
@@ -107,18 +120,26 @@ header #avatar img
 	border-radius: 50%;
 	width: 55px;
 }
-header #logo img 
+header #logo
 {
 	border-right: 1px solid white;
 	margin-right: 0.5em;
+}
+header #logo img 
+{
 	padding-right: 0.5em; 
 	width: 52px;
+	-webkit-transition: 1s; /*tiempo de duracion del efecto*/
+}
+header #logo img:hover
+{
+	-webkit-transform: rotate(360deg); /*animacion de rotacion*/
 }
 nav
 {	
 	background: #80BCA3;
 	box-shadow: rgba(0,0,0,0.5) 1px 1px 5px;
-	padding: 0 6.5em 0 0.5em;
+	padding: 0 6.5em 0 0;
 	position: relative;
 }
 nav ul 
@@ -130,29 +151,54 @@ nav ul
 nav ul li 
 {
 	display: inline-block;
-	margin: 0 1em 0 0;
 }
 nav ul li a 
 {
 	color: white;
 	display: block; /*solo los elementos block pueden tener padding y margin (top-bottom)*/
-	padding: 0.2em 0;
+	padding: 0.3em;
+	text-decoration: none;
+}
+nav ul li a:first-child
+{
+	padding-left: 0.8em;
+}
+nav ul li a:hover 
+{
+	background: #343B54;
+	-webkit-transition: 0.3s;
 }
 nav ul #publicar_nav
 {
 	position: absolute;
 	top:-0.4em;
-	right: 0;
+	right: 0.5em;
 }
 nav ul #publicar_nav a 
 {
 	background:#22BCE0;
 	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
 	border-radius: 0.3em;
-	padding: 0.8em 0.5em;
+	padding: 0.8em 0.5em 0.8em 2.1em;
 	font-style: italic;
 	text-decoration: none;
 	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+}
+nav ul #publicar_nav a:before 
+{
+	position: absolute;
+	left:0.5em;
+	top: 0.9em;
+}  
+nav ul #publicar_nav a:hover:before 
+{	
+	font-size: 19px;
+	left: 0.4em;
+	top: 0.6em;
+}
+aside
+{
+	display: none;
 }
 #contenido
 {
@@ -227,4 +273,59 @@ nav ul #publicar_nav a
 #contenido .item .votacion .guardar_votacion
 {
 	float: right;
+}
+
+
+
+/*MEDIA QUERYS*/
+@media screen and (min-width: 800px){
+	#contenido{
+		overflow: hidden;
+	}
+	#contenido .item{
+		width: 49%;
+		float: left;
+	}
+	/*nth-child permite seleccionar un hijo especifico por su numero*/
+	/*en este caso se usa 'odd' para indicar a todos los impares*/
+	#contenido .item:nth-child(odd){
+		margin-right: 2%;
+	}
+
+}
+@media screen and (min-width: 1000px){
+	aside{
+		  display: block;
+		  float: right;
+		  margin: 1em;
+		  width: 20%
+	}
+	aside video{
+		width: 100%;
+	}
+	
+
+}
+
+/*	FORMULARIO	*/
+
+.formulario
+{
+	display: none;
+	padding: 1em;
+	text-align: right;
+}
+.formulario input
+{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 0.2em 0.6em;
+}
+.formulario input[type="submit"]
+{
+	color: #fff;
+	background: #22BCE0;
+	box-shadow: rgba(0,0,0,0.5) 2px 2px 20px;
+	text-decoration: none;
+	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
 }
